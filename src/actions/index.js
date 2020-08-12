@@ -6,10 +6,23 @@
 // }
 
 
-export const login = (user) => {
+export const loginUser = (user) => {
     return {
         type: 'LOGIN',
         payload: {user}
+    }
+}
+
+export const logoutUser = () => {
+    return {
+        type: 'LOGOUT'
+    }
+}
+
+export const newEntry = (entry) => {
+    return {
+        type: 'NEW ENTRY',
+        payload: {entry}
     }
 }
 

@@ -1,17 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;700&display=swap');
+import "node_modules/video-react/dist/video-react.css"
+
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -24,15 +18,65 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.player.video-player {
+  width: auto;
+  height: auto;
+  max-width: 60%;
+  max-height: 60%;
+ 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.static.welcome-video {
+  font-family: 'Baloo Tamma 2', cursive;
+  background-color: black;
+  text-align: -webkit-center;
+ 
+  padding-bottom: 1%;
+  border-style: solid;
+  border-color: white
+}
+
+.welcome-title {
+  font-size: 100px;
+  color: white
+}
+
+
+
+.video-player-component {
+  border-radius: 90%;
+  border-style: solid;
+  border-color: white
+}
+
+.auth-title {
+  text-align: center;
+  font-size: 2vw;
+  margin-bottom: 4vw;
+}
+
+.custom-navbar {
+  background-color: black;
+  border-style: solid;
+  border-color: white
+}
+
+#dashboard-main-container {
+
+}
+
+#dashboard-title {
+  text-align: center;
+}
+
+#dream-description-form {
+  min-height: 12vw;
+}
+
+#new-dream-form {
+  border-style: solid
+}
+
+#microphone-icon {
+  height: 3vw;
 }

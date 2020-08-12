@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import { login } from '../../actions'
+import { loginUser } from '../../actions'
 import { checkLogin } from '../../helpers/requests'
 import { useHistory } from "react-router-dom"
 
@@ -32,15 +32,16 @@ const AuthLoginForm = () => {
         } else if (password !== data.password) {
             alert("Incorrect password. Please try again.")
         } else {
-            dispatch(login(data))
-            history.push(`/${data.id}`)
+            dispatch(loginUser(data))
+            localStorage.user_id = data.id
+            history.push(`/${data.username}`)
         }
     }
 
 
     return (
         <>
-            <h1>Login</h1>
+            <h3>Login</h3>
             <Form onSubmit={(e) => handleSubmit(e, username, password)}>
                 <Form.Group controlId="formBasicUsername">
                     <Form.Label>Username</Form.Label>

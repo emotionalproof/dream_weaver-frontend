@@ -23,3 +23,12 @@ export const postUser = user => fetch(`${API_BASE}/users`, {
     },
     body: JSON.stringify(user)
 }).then(resp => resp.json()).catch(console.alert)
+export const postEntry = entry => fetch(`${API_BASE}/entries`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+    },
+    body: JSON.stringify(entry)
+}).then(resp => resp.json()).catch(console.alert)
+export const getUser = id => fetch(`${API_BASE}/users/${id}`).then(resp => resp.json()).catch(console.alert)

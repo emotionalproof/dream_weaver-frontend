@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { checkLogin, postUser } from '../../helpers/requests'
 import { useHistory } from "react-router-dom"
-import { login } from '../../actions'
+import { loginUser } from '../../actions'
 
 const AuthRegisterForm = () => {
 
@@ -27,8 +27,9 @@ const AuthRegisterForm = () => {
             }else {
                 postUser(user).then(userObj => {
                     console.log(userObj)
-                    dispatch(login(userObj))
-                    history.push(`/${userObj.id}`)
+                    dispatch(loginUser(userObj))
+                    localStorage.user_id = userObj.id
+                    history.push(`/${userObj.username}`)
                 })
             }
         })
@@ -37,7 +38,7 @@ const AuthRegisterForm = () => {
     
     return (
         <>
-            <h1>Register</h1>
+            <h3>Register</h3>
             <Form onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group controlId="formBasicUsername">
                     <Form.Label>Username</Form.Label>
