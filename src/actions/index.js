@@ -1,9 +1,3 @@
-// export const increment = num = {
-//     return {
-//         type: 'INCREMENT',
-//         payload: num
-//     }
-// }
 
 
 export const loginUser = (user) => {
@@ -26,6 +20,13 @@ export const newEntry = (entry) => {
     }
 }
 
+export const updateEntry = (entry) => {
+    return {
+        type: "UPDATE ENTRY",
+        payload: {entry}
+    }
+}
+
 export const changeLoginFormUsername = (text) => {
     return {
         type: 'CHANGE LOGIN FORM USERNAME',
@@ -37,5 +38,25 @@ export const changeLoginFormPassword = (text) => {
     return {
         type: 'CHANGE LOGIN FORM PASSWORD',
         payload: text
+    }
+}
+
+export const changeDate = (date) => {
+    return {
+        type: "CHANGE DATE",
+        payload: date
+    }
+}
+
+export const searchDescription = (searchArray) => {
+    return {
+        type: "SEARCH DESCRIPTION",
+        payload: searchArray
+    }
+}
+
+export const sortDateAscending = () => {
+    return {
+        type: "SORT DATE ASCENDING"
     }
 }

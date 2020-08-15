@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col'
 
 
 const playerOptions = {
+    autoplay: true,
     sources: [
         {
             src: "media/welcome_video.mp4"

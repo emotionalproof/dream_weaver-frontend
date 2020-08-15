@@ -38,9 +38,9 @@ const DashboardMainContainer = () => {
                     
                 </Row>
                 <Row>
-                    <Col md={4}><DashboardLeftContainer /></Col>
+                    <Col md={3}><DashboardLeftContainer /></Col>
                     <Col md={1}></Col>
-                    <Col md={7}><DashboardRightContainer /></Col>
+                    <Col md={8}><DashboardRightContainer /></Col>
                 </Row>
                 
             </Container>

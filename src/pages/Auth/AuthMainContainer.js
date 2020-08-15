@@ -8,6 +8,7 @@ import { getUser } from '../../helpers/requests';
 import {useDispatch} from 'react-redux'
 import { loginUser } from '../../actions'
 import { useHistory } from "react-router-dom"
+import Button from 'react-bootstrap/Button'
 
 
 
@@ -29,7 +30,7 @@ const AuthMainContainer = () => {
 
 
     return (
-        <Container>
+        <Container fluid>
             <Row className="auth-title">
                 <Col>Register or Login Below</Col>
             </Row>
@@ -40,6 +41,11 @@ const AuthMainContainer = () => {
                 <Col></Col>
                 <Col md={5}>
                     <AuthLoginForm />
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Button onClick={() => history.push(`/welcome`)}>Cancel</Button>
                 </Col>
             </Row>
         </Container>
