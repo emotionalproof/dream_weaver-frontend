@@ -11,9 +11,9 @@ const RecentEntriesCard = props => {
     const [open, setOpen] = useState(false);
     let history = useHistory()
 
-    const viewDream = () => {
-        history.push(`/dreams/${props.id}`)
-    }
+    // const viewDream = () => {
+    //     history.push(`/dreams/${props.id}`)
+    // }
 
     // const titleizeTitle = title => {
     //    return title.split(" ").forEach(word => {
@@ -25,12 +25,11 @@ const RecentEntriesCard = props => {
     // const titleCase = str => { 
     //     return str.replace(/\w\S/g, function(t) { return t.toUpperCase() }); 
     // } 
-    console.log(moment(props.date).format("dddd, MMMM Do YYYY"))
     return (
         <Container id="recent-entry-card">
             <Row>
                 <Col md={9}>
-                    <h5><span id="recent-entry-title">{props.titleized_title}</span>, <span id="recent-entry-date">dreamt on {moment(props.date).format("dddd, MMMM Do YYYY")}</span></h5>
+                    <h5><span id="recent-entry-title">{props.titleized_title}</span>, <span id="recent-entry-date">dreamt on {props.date}</span></h5>
                 </Col>
                 <Col md={3}>
                     <Button

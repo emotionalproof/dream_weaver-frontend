@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -16,31 +16,51 @@ export const DreamIndexMainContainer = () => {
 
    
     let [entries, setEntries] = useState(user.entries)
-  
-    useEffect(() => {
-        setEntries(user.entries)
-    },[user.entries])
+    let [newDate, setNewDate] = useState("")
+    let [searchText, setSearchText] = useState("")
+
+    // useEffect(() => {
+    //     let entryArray = [...entries]
+    //     setEntries(entryArray.filter(entry => entry.date === newDate))
+    //     // setEntries(entryArray)
+    // },[entries, newDate])
 
     
-    console.log(entries)
+    const changeDate = date => {
+        setNewDate(date)
+    }
+
+    const handleSearch = text => {
+        setSearchText(text)
+    }
+
+
+    const entryArray = () => {
+        let entryArray = [...entries]
+        entryArray = entryArray.filter(entry => entry.date.includes(newDate))
+        let entryArrayWithSearch = [...entryArray]
+        entryArrayWithSearch = entryArrayWithSearch.filter(entry => entry.description.toLowerCase().includes(searchText.toLowerCase()))
+        return entryArrayWithSearch
+    }
+
     return (
         <>
             <NavBar />
             <Container fluid>
                 <Row>
                     <Col>
-                        <h1>DreamIndex</h1>
+                        <h1>Explore Your Dreams</h1>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <DreamIndexFilterForm />
+                        <DreamIndexFilterForm searchText={searchText} handleSearch={handleSearch}/>
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={3}><Calendar /></Col>
+                    <Col md={3}><Calendar changeDate={changeDate}/></Col>
                     <Col md={1}></Col>
-                    <Col md={8}><DreamEntryContainer entries={entries}/></Col>
+                    <Col md={8}><DreamEntryContainer entries={entryArray()}/></Col>
                 </Row>
             </Container>
             

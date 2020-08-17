@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import NavBar from '../../components/NavBar';
-import {useParams} from 'react-router-dom'
 import DashboardLeftContainer from './DashboardLeftContainer';
 import DashboardRightContainer from './DashboardRightContainer';
 
@@ -25,8 +24,7 @@ import DashboardRightContainer from './DashboardRightContainer';
 
 
 const DashboardMainContainer = () => {
-    let { username } = useParams()
-    console.log(username)
+    
     return (
         <>
             <NavBar />

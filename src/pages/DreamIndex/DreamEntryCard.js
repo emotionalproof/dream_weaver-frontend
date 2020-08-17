@@ -8,15 +8,21 @@ import Form from 'react-bootstrap/Form'
 import { patchEntry } from '../../helpers/requests'
 import { updateEntry } from '../../actions/index';
 import {useDispatch} from 'react-redux'
-import moment from 'moment'
+import SpeechSynthesis from './SpeechSynthesis';
+import ReactSay from './ReactSay';
+import SpeechKit from './SpeechKit';
 
-const API_BASE = "http://localhost:3002/api/v1"
+
+
+
+
+
 
 const DreamEntryCard = props => {
     let [editToggle, setEditToggle] = useState(false)
     let [title, setTitle] = useState(props.title)
     let [description, setDescription] = useState(props.description)
-    let [interpretation, setInterpretation] = useState(props.interpretation)
+    // let [interpretation, setInterpretation] = useState(props.interpretation)
     let dispatch = useDispatch()
 
     const handleSubmit = () => {
@@ -24,16 +30,13 @@ const DreamEntryCard = props => {
         let updateId = props.id
         let updateObj = { title: title, description: description }
         patchEntry(updateObj, updateId).then(data => {
-            console.log(data)
-            dispatch(updateEntry(data))
-            
+            dispatch(updateEntry(data))  
         })
     }
 
-    console.log(moment(props.date).format("YYYY-MM-DD"))
     return (
         <Card className="entry-card">
-            <Card.Header as="h2">{moment(props.date).format("dddd, MMMM Do YYYY")}</Card.Header>
+            <Card.Header as="h2">{props.date}</Card.Header>
             <Card.Body>
                 <Container>
                     <Row>
@@ -60,6 +63,9 @@ const DreamEntryCard = props => {
                     <Row>
                         <Col>
                             {!editToggle ? <Button onClick={() => setEditToggle(!editToggle)} variant="primary">Edit</Button> : <Button variant="primary"onClick={handleSubmit}>Save Changes</Button>}
+                        </Col>
+                        <Col>
+                            <SpeechKit id={props.id} text={`${props.title}. Dreamt on ${props.date}. ${props.description}`}/>
                         </Col>
                     </Row>
                 </Container>

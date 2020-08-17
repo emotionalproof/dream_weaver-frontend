@@ -41,10 +41,10 @@ export const changeLoginFormPassword = (text) => {
     }
 }
 
-export const changeDate = (date) => {
+export const changeDate = (newDate) => {
     return {
         type: "CHANGE DATE",
-        payload: date
+        payload: newDate
     }
 }
 
@@ -58,5 +58,18 @@ export const searchDescription = (searchArray) => {
 export const sortDateAscending = () => {
     return {
         type: "SORT DATE ASCENDING"
+    }
+}
+
+export const resetDate = () => {
+    return {
+        type: "RESET DATE"
+    }
+}
+
+export const newSymbol = (symbol) => {
+    return {
+        type: "NEW SYMBOL",
+        payload: symbol
     }
 }

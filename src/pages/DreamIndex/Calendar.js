@@ -4,33 +4,27 @@ import { range } from "moment-range";
 import "./calendar.css";
 import MonthList from './MonthList';
 import YearTable from './YearTable';
-import {useSelector, useDispatch} from 'react-redux'
 
-const Calendar = () => {
+
+const Calendar = props => {
 
     let weekdayShort = moment.weekdaysShort();
-
     let [showCalendarTable, setShowCalendarTable] = useState(true)
     let [showMonthTable, setShowMonthTable] = useState(false)
     let [dateObject, setDateObject] = useState(moment())
     let [allMonths, setAllMonths] = useState(moment.months())
     let [showYearNav, setShowYearNav] = useState(false)
-    let [selectedDay, setSelectedDay] = useState(moment())
+    let [selectedDay, setSelectedDay] = useState(moment(dateObject).format("dddd, MMMM Do YYYY"))
+    // let [currentDay, setCurrentDay] = 
 
     const daysInMonth = () => dateObject.daysInMonth()
-
     const year = () => dateObject.format("Y")
-
     const currentDay = () => dateObject.format("D")
-
-    const firstDayOfMonth = () => {
-        let firstDay = moment(dateObject).startOf("month").format("d"); // Day of week 0...1..5...6
-        return firstDay;
-    };
-
     const month = () => dateObject.format("MMMM");
 
-    const showMonth = (e, month) => {
+    const firstDayOfMonth = () => moment(dateObject).startOf("month").format("d"); // Day of week 0...1..5...6
+
+    const showMonth = () => {
         setShowMonthTable(!showMonthTable)
         setShowCalendarTable(!showCalendarTable)
     };
@@ -45,27 +39,17 @@ const Calendar = () => {
     };
     
     const showYearEditor = () => {
-        setShowYearNav(true)
+        setShowYearNav(!showYearNav)
         setShowCalendarTable(!showCalendarTable)
     };
 
     const onPrev = () => {
-        let curr = "";
-        if (showMonthTable === true) {
-            curr = "year";
-        } else {
-            curr = "month";
-        }
+        let curr = showMonthTable === true ? "year" : "month"
         setDateObject(dateObject.subtract(1, curr))
     };
 
     const onNext = () => {
-        let curr = "";
-        if (showMonthTable === true) {
-            curr = "year";
-        } else {
-            curr = "month";
-        }
+        let curr = showMonthTable === true ? "year" : "month"
         setDateObject(dateObject.add(1, curr))
     };
 
@@ -80,9 +64,12 @@ const Calendar = () => {
     };
 
     const onYearChange = e => setYear(e.target.value);
-     
+    
     const onDayClick = (e, d) => {
-        setSelectedDay(moment(dateObject).set("date", d).format("dddd, MMMM Do YYYY"))
+        let day = moment(dateObject).set("date", d).format("dddd, MMMM Do YYYY")
+        setSelectedDay(day)
+        props.changeDate(day)
+        // dispatch(changeDate(selectedDay))
     }
 
     let weekdayShortName = weekdayShort.map((day,index) => {
@@ -91,22 +78,17 @@ const Calendar = () => {
 
     let blanks = [];
     for (let i = 0; i < firstDayOfMonth(); i++) {
-    blanks.push(<td className="calendar-day empty">{""}</td>);
+    blanks.push(<td key={i} className="calendar-day empty">{""}</td>);
     }
 
     let daysInMonthArray = [];
     for (let d = 1; d <= daysInMonth(); d++) {
         let currentDaySelected = (d === currentDay() ? "today" : "")
         // let selectedClass = (d == state.selectedDay ? " selected-day " : "")
+        let key = "d" + d
         daysInMonthArray.push(
-            <td key={d} className={`calendar-day ${currentDaySelected}`}>
-            <span
-                onClick={e => {
-                    onDayClick(e, d);
-                }}
-            >
-                {d}
-            </span>
+            <td key={key} className={`calendar-day ${currentDaySelected}`}>
+                <span onClick={e => onDayClick(e, d)}>{d}</span>
             </td>
         );
     }
@@ -128,66 +110,45 @@ const Calendar = () => {
         }
     });
 
-    let daysinmonth = rows.map((d, i) => {
-        return <tr>{d}</tr>;
+    let mappedDaysInMonth = rows.map((d, i) => {
+        let key = d + i
+        return <tr key={key}>{d}</tr>;
     });
 
-    console.log(selectedDay)
+    const resetDate = () => {
+        props.changeDate("")
+        setSelectedDay("No Date Selected")
+    }
+ 
     return (
         <div className="tail-datetime-calendar">
+            <div><h4 id="calendar-instructions">See what dreams you had on a particular day.</h4></div>
+            <div><h5>{selectedDay}</h5></div>
             <div className="calendar-navi">
-            <span
-                onClick={e => {
-                onPrev();
-                }}
-                className="calendar-button button-prev"
-            />
-            {!showMonthTable && !showYearEditor && (
-                <span
-                onClick={e => {
-                    showMonth();
-                }}
-                class="calendar-label"
-                >
-                {month()},
-                </span>
-            )}
-            <span
-                className="calendar-label"
-                onClick={e => {
-                    showYearEditor();
-                }}
-            >
-                {year()}
-            </span>
-
-            <span
-                onClick={e => {
-                onNext();
-                }}
-                className="calendar-button button-next"
-            />
+                <span onClick={onPrev} className="calendar-button button-prev"/>
+                    {(!showMonthTable && !showYearNav) && (
+                    <span onClick={showMonth} className="calendar-label">
+                        {month()}
+                    </span>
+                )}
+                <span className="calendar-label" onClick={showYearEditor}>{year()}</span>
+                <span onClick={onNext} className="calendar-button button-next"/>
             </div>
             <div className="calendar-date">
-            {showYearNav && <YearTable setYear={setYear} year={year()} />}
-            {showMonthTable && (
-                <MonthList setMonth={setMonth} data={moment.months()} />
-            )}
+                {showYearNav && <YearTable setYear={setYear} year={year()} />}
+                {showMonthTable && (<MonthList setMonth={setMonth} data={moment.months()} />)}
             </div>
-
             {showCalendarTable && (
             <div className="calendar-date">
                 <table className="calendar-day">
-                <thead>
-                    <tr>{weekdayShortName}</tr>
-                </thead>
-                <tbody>{daysinmonth}</tbody>
+                    <thead><tr>{weekdayShortName}</tr></thead>
+                    <tbody>{mappedDaysInMonth}</tbody>
                 </table>
             </div>
             )}
+            <h5 id="reset-date-button" onClick={resetDate}>All Dates</h5>
         </div>
     );
-
 }
 
 export default Calendar

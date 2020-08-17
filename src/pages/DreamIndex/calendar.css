@@ -1,6 +1,6 @@
 /* @start tail.DateTime */
 .tail-datetime-calendar {
-    width: 245px;
+    width: 100%;
     height: auto;
     margin: 15px;
     padding: 0;
@@ -33,13 +33,14 @@
     display: table;
     border-spacing: 0;
     border-collapse: separate;
-    background-color: #cd283c;
+    /* background-color: #cd283c; */
     border-radius: 3px 3px 0 0;
     -webkit-border-radius: 3px 3px 0 0;
+    border-style: solid;
 }
 .tail-datetime-calendar .calendar-navi span {
     cursor: pointer;
-    color: #fff;
+    /* color: #fff; */
     margin: 0;
     padding: 0;
     display: table-cell;
@@ -59,12 +60,12 @@
 .tail-datetime-calendar .calendar-navi span:hover {
     background-color: rgba(0, 0, 0, 0.15);
 }
-.tail-datetime-calendar .calendar-navi span.button-prev {
+/* .tail-datetime-calendar.calendar-navi span.button-prev {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC\
     9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgNiAxNiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iT\
     TYgMkwwIDhsNiA2VjJ6Ii8+PC9zdmc+");
 }
-.tail-datetime-calendar .calendar-navi span.button-next {
+.tail-datetime-calendar.calendar-navi span.button-next {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC\
     9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgNiAxNiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iT\
     TAgMTRsNi02LTYtNnYxMnoiLz48L3N2Zz4=");
@@ -79,7 +80,7 @@
     9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkP\
     SJNNy40OCA4bDMuNzUgMy43NS0xLjQ4IDEuNDhMNiA5LjQ4bC0zLjc1IDMuNzUtMS40OC0xLjQ4TDQuNTIgOCAuNzcgNC4y\
     NWwxLjQ4LTEuNDhMNiA2LjUybDMuNzUtMy43NSAxLjQ4IDEuNDhMNy40OCA4eiIvPjwvc3ZnPg==");
-}
+} */
 .tail-datetime-calendar .calendar-date {
     margin: 0;
     padding: 0;
@@ -116,6 +117,7 @@
     color: inherit;
     z-index: 10;
     position: relative;
+    left: -12px;
 }
 /* Select a Day */
 .tail-datetime-calendar .calendar-date table tbody tr > *::after {
@@ -262,4 +264,15 @@
     display: block;
     font-size: 12px;
     line-height: 12px;
+}
+
+h5#reset-date-button {
+    margin-top: 15px;
+    border-style: solid;
+    width: fit-content;
+}
+
+h4#calendar-instructions {
+    font-size: large;
+    text-align-last: center;
 }

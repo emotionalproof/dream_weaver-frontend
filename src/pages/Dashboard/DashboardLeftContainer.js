@@ -1,10 +1,18 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import LearnASymbolComponent from './LearnASymbolComponent'
 
 const DashboardLeftContainer = () => {
     return (
-        <div>
-            <h1>Left Container</h1>
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                    <LearnASymbolComponent />
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

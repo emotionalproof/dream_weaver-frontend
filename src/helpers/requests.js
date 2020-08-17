@@ -44,3 +44,5 @@ export const patchEntry = (updateObj, updateId) => fetch(`${API_BASE}/entries/${
     },
     body: JSON.stringify(updateObj)
 }).then(resp => resp.json()).catch(console.alert)
+
+export const getRandomSymbol = () => fetch(`${API_BASE}/dream_symbols/misc/random`).then(resp => resp.json()).catch(console.alert)

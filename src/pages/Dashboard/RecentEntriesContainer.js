@@ -9,12 +9,12 @@ const RecentEntriesContainer = () => {
     let sortedEntries = [...entries]
     sortedEntries = sortedEntries.sort((a, b) => b.id - a.id)
 
-    console.log(sortedEntries)
+
     return (
         <div id="recent-entry-container">
             <h2>Recent Dreams</h2>
             <h5>For each of the recent Dream Entries, click "Description" to read what you wrote about your dream. Click "More Details" to edit your description of the dream or add an interpretation.</h5>
-            {sortedEntries.sort((a, b) => b.id - a.id).map((entry, index) => 
+            {sortedEntries.map((entry, index) => 
                 index < 5 && <RecentEntriesCard {...entry} key={entry.id}/>
             )}
         </div>

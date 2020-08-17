@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 import DreamEntryCard from './DreamEntryCard';
 
 const DreamEntryContainer = props => {
-    console.log(props)
+
     return (
         <Container fluid>
             <Row>

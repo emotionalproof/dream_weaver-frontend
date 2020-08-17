@@ -10,9 +10,9 @@ import { newEntry } from '../../actions/index';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 const NewDreamForm = () => {
-    let todayDate = parseInt(moment().date())
-    let todayMonth = parseInt(moment().month()) 
-    let todayYear = parseInt(moment().year())
+    // let todayDate = parseInt(moment().date())
+    // let todayMonth = parseInt(moment().month()) 
+    // let todayYear = parseInt(moment().year())
     let todayString = moment().format("YYYY-MM-DD")
     // let todayString = moment([todayYear, todayMonth, todayDate]).format("dddd, MMMM Do YYYY")
 
@@ -24,7 +24,7 @@ const NewDreamForm = () => {
     let [description, setDescription] = useState("")
     let [recording, setRecording] = useState(false)
 
-    let user = useSelector(state => state.updateUser.user)
+    // let user = useSelector(state => state.updateUser.user)
 
     useEffect(() => {
         setDescription(transcript)
@@ -56,19 +56,19 @@ const NewDreamForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        let formattedDate = moment(date).format("dddd, MMMM Do YYYY")
         let entryObj = {
             title: title, 
-            date: moment(date).format("dddd, MMMM Do YYYY"), 
+            date: formattedDate, 
             description: description, 
             user_id: localStorage.user_id
         }
         
         if (title !== "" && description !== "") {
             postEntry(entryObj).then(entry => {
-            console.log(entry)
             dispatch(newEntry(entry))
             setTitle("")
-            setDate("")
+            setDate(todayString)
             setDescription("")
             resetTranscript()
         })}

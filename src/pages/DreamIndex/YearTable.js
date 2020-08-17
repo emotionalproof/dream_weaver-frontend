@@ -38,7 +38,7 @@ const YearTable = props => {
     let cells = [];
 
     months.forEach((row, i) => {
-    if (i % 3 !== 0 || i == 0) {
+    if (i % 3 !== 0 || i === 0) {
         cells.push(row);
     } else {
         rows.push(cells);
@@ -55,7 +55,7 @@ const YearTable = props => {
     <table className="calendar-month">
         <thead>
         <tr>
-            <th colSpan="4">Select a Yeah</th>
+            <th colSpan="4">Select a Year</th>
         </tr>
         </thead>
         <tbody>{yearlist}</tbody>

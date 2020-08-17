@@ -26,7 +26,6 @@ const AuthRegisterForm = () => {
                 alert("Sorry, that user has already been taken. If this is your username, please use the login form on the right. Otherwise select a new username and try again.")
             }else {
                 postUser(user).then(userObj => {
-                    console.log(userObj)
                     dispatch(loginUser(userObj))
                     localStorage.user_id = userObj.id
                     history.push(`/${userObj.username}`)

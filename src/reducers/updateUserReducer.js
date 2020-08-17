@@ -16,7 +16,6 @@ const updateUserReducer = (prevState=initialState, action) => {
                         action.payload.entry
                     ]}}
         case 'UPDATE ENTRY':
-            console.log(action.payload.entry.id)
             return {
                 ...prevState, 
                 user: {

@@ -1,14 +1,15 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import AuthLoginForm from './AuthLoginForm';
 import AuthRegisterForm from './AuthRegisterForm';
-import { getUser } from '../../helpers/requests';
+import { getUser, getRandomSymbol } from '../../helpers/requests';
 import {useDispatch} from 'react-redux'
-import { loginUser } from '../../actions'
+import { loginUser, newSymbol } from '../../actions'
 import { useHistory } from "react-router-dom"
 import Button from 'react-bootstrap/Button'
+
 
 
 
@@ -18,6 +19,15 @@ const AuthMainContainer = () => {
         localStorage.user_id && fetchUser(localStorage.user_id)
     })
 
+    let [symbol, setSymbol] = useState({})
+
+    useEffect(() => {
+        fetchSymbol()
+    }, [symbol])
+
+    const fetchSymbol = () => {
+        getRandomSymbol().then(symbol => dispatch(newSymbol(symbol)))
+    }
     let dispatch = useDispatch()
     let history = useHistory()
     
