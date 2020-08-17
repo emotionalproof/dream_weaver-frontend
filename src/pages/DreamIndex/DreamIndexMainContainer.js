@@ -7,6 +7,7 @@ import NavBar from '../../components/NavBar';
 import Calendar from './Calendar';
 import DreamEntryContainer from './DreamEntryContainer';
 import DreamIndexFilterForm from './DreamIndexFilterForm'
+import moment from 'moment'
 
 
 
@@ -18,6 +19,7 @@ export const DreamIndexMainContainer = () => {
     let [entries, setEntries] = useState(user.entries)
     let [newDate, setNewDate] = useState("")
     let [searchText, setSearchText] = useState("")
+    
 
     // useEffect(() => {
     //     let entryArray = [...entries]
@@ -36,7 +38,7 @@ export const DreamIndexMainContainer = () => {
 
 
     const entryArray = () => {
-        let entryArray = [...entries]
+        let entryArray = [...entries].sort((a, b) => moment(b.date, "dddd, MMMM Do YYYY").unix() - moment(a.date, "dddd, MMMM Do YYYY").unix())
         entryArray = entryArray.filter(entry => entry.date.includes(newDate))
         let entryArrayWithSearch = [...entryArray]
         entryArrayWithSearch = entryArrayWithSearch.filter(entry => entry.description.toLowerCase().includes(searchText.toLowerCase()))

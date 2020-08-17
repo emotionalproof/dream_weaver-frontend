@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 const initialState = {user: null, loginCredentials: null}
 
 const updateUserReducer = (prevState=initialState, action) => {
