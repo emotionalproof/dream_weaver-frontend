@@ -12,7 +12,7 @@ const RecentEntriesContainer = () => {
 
     return (
         <div id="recent-entry-container">
-            <h2>Recent Dreams</h2>
+            <img id="recent-dreams-heading" src="/media/dashboard-recent-dreams-heading.png" alt="recent dreams"/>
             <h5>For each of the recent Dream Entries, click "Description" to read what you wrote about your dream. Click "More Details" to edit your description of the dream or add an interpretation.</h5>
             {sortedEntries.map((entry, index) => 
                 index < 5 && <RecentEntriesCard {...entry} key={entry.id}/>

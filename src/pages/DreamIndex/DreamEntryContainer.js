@@ -7,7 +7,7 @@ import DreamEntryCard from './DreamEntryCard';
 const DreamEntryContainer = props => {
 
     return (
-        <Container fluid>
+        <Container id="dream-entry-container" fluid>
             <Row>
                 <Col>
                     {props.entries.map(entry => 

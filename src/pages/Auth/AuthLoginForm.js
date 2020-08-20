@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Button} from 'semantic-ui-react'
 import { loginUser } from '../../actions'
 import { checkLogin } from '../../helpers/requests'
 import { useHistory } from "react-router-dom"
@@ -41,20 +41,22 @@ const AuthLoginForm = () => {
 
     return (
         <>
-            <h3>Login</h3>
-            <Form onSubmit={(e) => handleSubmit(e, username, password)}>
-                <Form.Group controlId="formBasicUsername">
+            <Form className="auth-form" id="login-form" onSubmit={(e) => handleSubmit(e, username, password)}>
+                <Form.Group className="auth-form-group" controlId="formBasicUsername">
                     <Form.Label>Username</Form.Label>
                     <Form.Control onChange={(e) => setUsername(e.target.value)} name="username" type="text" placeholder="please enter your username" value={username}/>
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
+                <Form.Group className="auth-form-group" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control onChange={(e) => setPassword(e.target.value)} type="password" placeholder="please enter your password" value={password}/>
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                <div className="auth-form-button auth-form-group">
+                    <Button   inverted type="submit">
+                        Submit
+                    </Button>
+                </div>
+                
             </Form>
         </>
     )

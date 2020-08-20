@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Collapse from 'react-bootstrap/Collapse'
-import Button from 'react-bootstrap/Button'
+import { Button, Divider, Transition} from 'semantic-ui-react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom"
 import moment from 'moment';
 
 const RecentEntriesCard = props => {
-    const [open, setOpen] = useState(false);
+    const [viewDescription, setViewDescription] = useState(false);
     let history = useHistory()
 
     // const viewDream = () => {
@@ -25,7 +25,14 @@ const RecentEntriesCard = props => {
     // const titleCase = str => { 
     //     return str.replace(/\w\S/g, function(t) { return t.toUpperCase() }); 
     // } 
+
+    const toggleViewDescription = () => {
+        setViewDescription(!viewDescription)
+    }
+
+
     return (
+        <>
         <Container id="recent-entry-card">
             <Row>
                 <Col md={9}>
@@ -33,31 +40,30 @@ const RecentEntriesCard = props => {
                 </Col>
                 <Col md={3}>
                     <Button
-                        onClick={() => setOpen(!open)}
-                        aria-controls="example-collapse-text"
-                        aria-expanded={open}
-                        id="recent-entry-card-view-description-button"
-                    >
-                        Description
-                    </Button>
+                        className="custom-button"
+                        inverted
+                        content={viewDescription ? 'Hide Description' : 'Show Description'}
+                        onClick={toggleViewDescription}
+                    />
                     {/* <Button onClick={() => viewDream()}>
                         More Details
                     </Button> */}
                 </Col>
            
             </Row>
+            <Divider hidden />
+            <Transition visible={viewDescription} animation='scale' duration={500}>
             <Row>
                 <Col>
-                    <Collapse in={open}>
                         <div id="example-collapse-text">
                             {props.description}
                         </div>
-                    </Collapse>
                 </Col>
             </Row>
-           
+           </Transition>
             
         </Container>
+        </>
     );
 }
 

@@ -5,8 +5,8 @@ import { useSpeechSynthesis } from 'react-speech-kit';
 const SpeechKit = props => {
     const [text, setText] = useState(props.text);
     const [pitch, setPitch] = useState(1.1);
-    const [rate, setRate] = useState(1);
-    const [voiceIndex, setVoiceIndex] = useState(28);
+    const [rate, setRate] = useState(0.9);
+    const [voiceIndex, setVoiceIndex] = useState(10);
     const onEnd = () => {
         // You could do something here after speaking has finished
     };

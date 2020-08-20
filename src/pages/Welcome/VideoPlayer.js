@@ -2,11 +2,12 @@ import React, { useRef, useEffect } from "react";
 import videojs from "video.js";
 import "videojs-plus";
 import "videojs-plus/dist/videojs-plus.css";
+import Col from 'react-bootstrap/Col'
 
 const defaultPlayerOptions = {
     autoplay: true,
     muted: false,
-    aspectRatio: "5:4",
+    aspectRatio: "1:1",
     mobileView: false,
     controls: false,
     loop: true
@@ -46,10 +47,10 @@ const VideoPlayer = ({children, playerOptions, onPlayerInit, onPlayerDispose}) =
     }, [onPlayerInit, onPlayerDispose, playerOptions]);
 
     return (
-        <div className="player video-player" ref={containerRef}>
-        <video className="video-box"/>
-        {children}
-        </div>
+        <Col md={8} id="video-play-div" className="player video-player" ref={containerRef}>
+            <video id="video-tag-box" className="video-box"/>
+            {children}
+        </Col>
     );
 }
 

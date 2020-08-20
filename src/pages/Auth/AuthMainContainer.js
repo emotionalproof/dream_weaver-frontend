@@ -8,7 +8,7 @@ import { getUser, getRandomSymbol } from '../../helpers/requests';
 import {useDispatch} from 'react-redux'
 import { loginUser, newSymbol } from '../../actions'
 import { useHistory } from "react-router-dom"
-import Button from 'react-bootstrap/Button'
+import { Button} from 'semantic-ui-react'
 
 
 
@@ -40,22 +40,22 @@ const AuthMainContainer = () => {
 
 
     return (
-        <Container fluid>
+        <Container fluid id="auth-main-container">
             <Row className="auth-title">
-                <Col>Register or Login Below</Col>
+                <Col></Col>
             </Row>
-            <Row>
-                <Col md={5}>
+            <Row id='auth-form-row'>
+                <Col id="register-column" className="auth-form-column" md={5}>
                     <AuthRegisterForm />
                 </Col>
-                <Col></Col>
-                <Col md={5}>
+                <Col md={1}></Col>
+                <Col id="login-column" className="auth-form-column" md={5}>
                     <AuthLoginForm />
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <Button onClick={() => history.push(`/welcome`)}>Cancel</Button>
+                    <Button inverted onClick={() => history.push(`/welcome`)}>Take me back to the music!</Button>
                 </Col>
             </Row>
         </Container>

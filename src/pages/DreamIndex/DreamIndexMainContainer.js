@@ -8,6 +8,7 @@ import Calendar from './Calendar';
 import DreamEntryContainer from './DreamEntryContainer';
 import DreamIndexFilterForm from './DreamIndexFilterForm'
 import moment from 'moment'
+import MyPlanet from '../../components/MyPlanet';
 
 
 
@@ -36,7 +37,7 @@ export const DreamIndexMainContainer = () => {
         setSearchText(text)
     }
 
-
+    
     const entryArray = () => {
         let entryArray = [...entries].sort((a, b) => moment(b.date, "dddd, MMMM Do YYYY").unix() - moment(a.date, "dddd, MMMM Do YYYY").unix())
         entryArray = entryArray.filter(entry => entry.date.includes(newDate))
@@ -47,8 +48,13 @@ export const DreamIndexMainContainer = () => {
 
     return (
         <>
-            <NavBar />
-            <Container fluid>
+            <Container fluid id="dream-index-container">
+                <Row id='nav-row'>
+                    <Col id='nav-col'>
+                       <MyPlanet /> 
+                    </Col>
+                    
+                </Row>
                 <Row>
                     <Col>
                         <h1>Explore Your Dreams</h1>

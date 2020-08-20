@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Button, Divider, Transition} from 'semantic-ui-react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import {useSelector, useDispatch} from 'react-redux'
@@ -15,7 +15,7 @@ const NewDreamForm = () => {
     // let todayYear = parseInt(moment().year())
     let todayString = moment().format("YYYY-MM-DD")
     // let todayString = moment([todayYear, todayMonth, todayDate]).format("dddd, MMMM Do YYYY")
-
+    
     let dispatch = useDispatch()
     const { transcript, resetTranscript } = useSpeechRecognition()
     
@@ -23,8 +23,12 @@ const NewDreamForm = () => {
     let [date, setDate] = useState(todayString)
     let [description, setDescription] = useState("")
     let [recording, setRecording] = useState(false)
+    let [visible, setVisible] = useState(false)
 
     // let user = useSelector(state => state.updateUser.user)
+    const toggleForm = () => {
+        setVisible(!visible)
+    }
 
     useEffect(() => {
         setDescription(transcript)
@@ -75,20 +79,29 @@ const NewDreamForm = () => {
     }
 
     return (
+        <>
+        <Button
+            className="custom-button"
+            inverted
+            content={visible ? 'Hide Form' : 'Add New Dream Entry'}
+            onClick={toggleForm}
+        />
+        <Divider hidden />
+        <Transition visible={visible} animation='scale' duration={500}>
         <Form id="new-dream-form" onSubmit={(e) => handleSubmit(e)}>
             <Row>
                 <Col>
-                    <Form.Label>Title</Form.Label>
+                    <Form.Label className="new-entry-label">Title</Form.Label>
                     <Form.Control type="text" name="title" placeholder="Give your dream a title." onChange={e => setTitle(e.target.value)} value={title}/>
                 </Col>
                 <Col>
-                    <Form.Label>Date</Form.Label>
+                    <Form.Label className="new-entry-label">Date</Form.Label>
                     <Form.Control type="date" name="date" onChange={e => setDate(e.target.value)} value={date}/>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <Form.Label>Description</Form.Label><br/>
+                    <Form.Label className="new-entry-label">Description</Form.Label><br/>
                     {!recording? <img onClick={handleRecording} id="microphone-icon" src='/media/mic-circle-sharp.svg' alt="record"/> : 
                         <> 
                         <button onClick={handleRecording}>Stop</button>
@@ -97,9 +110,13 @@ const NewDreamForm = () => {
                     }
                     <Form.Control as="textarea" type="textarea" name="description" id="dream-description-form" placeholder="Describe your dream with as much detail as possible" onChange={e => setDescription(e.target.value)} value={description}/>
                 </Col>
-            </Row>           
-            <Button variant="primary" type="submit">Submit</Button>
+            </Row> 
+            <div id="new-entry-submit-button" className="new-entry-label">
+                <Button  className="custom-button" inverted type="submit">Submit</Button>
+            </div>          
         </Form>
+        </Transition>
+        </>
     )
 }
 

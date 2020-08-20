@@ -11,6 +11,7 @@ import {useDispatch} from 'react-redux'
 import SpeechSynthesis from './SpeechSynthesis';
 import ReactSay from './ReactSay';
 import SpeechKit from './SpeechKit';
+import moment from 'moment'
 
 
 
@@ -34,6 +35,8 @@ const DreamEntryCard = props => {
         })
     }
 
+    
+
     return (
         <Card className="entry-card">
             <Card.Header as="h2">{props.date}</Card.Header>
@@ -54,7 +57,7 @@ const DreamEntryCard = props => {
                         </Col>
                     </Row>
                     <Row className="entry-card-divider"></Row>
-                    <Row><Col className="entry-card-subheading"><h4>interpretation</h4></Col></Row>
+                    {/* <Row><Col className="entry-card-subheading"><h4>interpretation</h4></Col></Row> */}
                     <Row>
                         <Col className="entry-card-content">
                             

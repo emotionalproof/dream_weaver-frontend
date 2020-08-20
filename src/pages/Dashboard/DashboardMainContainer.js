@@ -5,7 +5,8 @@ import Col from 'react-bootstrap/Col'
 import NavBar from '../../components/NavBar';
 import DashboardLeftContainer from './DashboardLeftContainer';
 import DashboardRightContainer from './DashboardRightContainer';
-
+import moment from 'moment'
+import MyPlanet from '../../components/MyPlanet';
 
 
 // to save user_id through a refresh
@@ -24,21 +25,26 @@ import DashboardRightContainer from './DashboardRightContainer';
 
 
 const DashboardMainContainer = () => {
-    
     return (
         <>
-            <NavBar />
+            
             <Container fluid id="dashboard-main-container">
-                <Row>
-                    <Col id="dashboard-title">
-                        <h1>DashboardMainContainer</h1> 
+                <Row id='nav-row'>
+                    <Col id='nav-col'>
+                       <MyPlanet /> 
                     </Col>
                     
                 </Row>
                 <Row>
-                    <Col md={3}><DashboardLeftContainer /></Col>
+                    <Col id="dashboard-title">
+                        <img id="dashboard-title-image" src="/media/dashboard-title.png" alt="welcome dreamer" /> 
+                    </Col>
+                    
+                </Row>
+                <Row id="dashboard-content-row">
+                    <Col md={4}><DashboardLeftContainer /></Col>
                     <Col md={1}></Col>
-                    <Col md={8}><DashboardRightContainer /></Col>
+                    <Col md={7}><DashboardRightContainer /></Col>
                 </Row>
                 
             </Container>

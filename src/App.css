@@ -1,73 +1,229 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;700&display=swap');
-/* @import '/node_modules/video-react/dist/video-react.css'; */
+@import '/node_modules/video-react/dist/video-react.css';
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
 
 
 .App {
  
- 
+ background-color: white
 }
 
+#video-play-div {
+
+
+}
+
+.video-js .vjs-tech {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 90%;
+}
+
+#video-tag-box {
+
+  border-radius: 90%;
+}
+
+#video-player-column {
+  height: 56vw;
+}
+#video-player-row {
+  
+}
+
+#dream-bubble-image {
+  width: 43vw;
+}
+
+#maizey {
+  height: auto;
+  width: auto;
+  max-width: 28vw;
+  position: relative;
+}
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+  /* background-color: #282c34; */
+  /* min-height: 100vh; */
+  /* display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: white; */
+}
+
+#welcome-container {
+  /* background: url(/media/DreamWeaver.png);
+  background-size: contain; */
+  /* background-repeat: none; */
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+div#welcome-title-container {
+  /* border-style: solid;
+  width: fit-content;
+  border-radius: 43px;
+  margin-top: 25px; */
 }
 
 .player.video-player {
   width: auto;
   height: auto;
-  max-width: 60%;
+  max-width: 43%;
   max-height: 60%;
- 
+}
+
+#bubble-image {
+  position: relative;
+  right: -42vw;
+  top: -69px;
 }
 
 .static.welcome-video {
   font-family: 'Baloo Tamma 2', cursive;
-  background-color: black;
+  color:black;
   text-align: -webkit-center;
  
-  padding-bottom: 1%;
-  border-style: solid;
-  border-color: white
+  /* padding-bottom: 1%; */
 }
 
 .welcome-title {
+  font-family: 'Walter Turncoat', cursive;
   font-size: 100px;
-  color: white
 }
 
 
 
 .video-player-component {
   border-radius: 90%;
-  border-style: solid;
-  border-color: white
+
+}
+
+#center-dream-bubble {
+
+}
+
+
+
+
+/* AUTH PAGE */
+
+#auth-main-container {
+  background: url(/media/auth-background.png);
+  background-size: cover; 
+  background-repeat: no-repeat
+}
+
+#auth-form-row {
+  margin-top: 2%;
+  margin-bottom: 7%
+}
+
+.auth-form {
+  color: #fff;
 }
 
 .auth-title {
   text-align: center;
   font-size: 2vw;
-  margin-bottom: 4vw;
+  height: 17vw;
+}
+#login-column {
+  border-style: solid;
+  border-color: white;
+  border-radius: 38px;
+  margin-right: 3%;
+  height: fit-content;
 }
 
-.custom-navbar {
-  background-color: black;
+#login-form {
+
+}
+
+.auth-form-column {
+  padding-bottom: 8px;
+}
+
+.auth-form-group {
+  margin-top: 4%;
+  border-radius: 50px
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+#register-column {
+  margin-left: 3%;
+  border-color: white;
   border-style: solid;
-  border-color: white
+  border-radius: 38px;
+}
+
+#register-form {
+
+}
+
+.auth-form-button {
+  text-align: center;
+}
+
+
+
+.custom-navbar {
+  
+ 
+
+}
+
+.ui.inverted.button {
+  border-radius: 13px;
+}
+
+#new-entry-submit-button{
+  text-align: center;
+}
+
+#nav-planet {
+  margin-top: 43px;
+  margin-left: 0px;
+}
+
+img.orbit {
+  width: auto;
+  height: auto;
+  max-width: 123px;
 }
 
 #dashboard-main-container {
-
+  background: url(/media/dashboard-background.png);
+  background-size: auto; 
+  background-repeat: repeat-y
 }
 
 #dashboard-title {
   text-align: center;
+ 
+}
+
+#dashboard-title-image {
+  height: 8vw;
+  width: auto;
+}
+
+#dashboard-content-row {
+  margin-top: 3%
 }
 
 #dream-description-form {
@@ -75,26 +231,46 @@
 }
 
 #new-dream-form {
-  border-style: solid
+  border-style: solid;
+  border-color: white;
+  color: white;
+  border-radius: 5%;
+  margin-top: 5%
+}
+
+.new-entry-label {
+  margin-top: 4%
 }
 
 #microphone-icon {
   height: 3vw;
 }
 
+#recent-dreams-heading {
+  position: relative;
+  right: 57px;
+  height: 6vw;
+  width: auto;
+}
+
 #recent-entry-card {
   margin-top: 2vw;
   border-style: solid;
+  color: white;
+  border-color: white;
   border-radius: 11px;
   min-height: 4vw;
 }
 
 #recent-entry-container {
   margin-top: 3vw;
+  color: white
 }
 
+
+
 #recent-entry-title {
-  -webkit-text-stroke-width: thick;
+ 
 }
 
 #recent-entry-date {
@@ -103,6 +279,19 @@
 
 #recent-entry-card-view-description-button {
 
+}
+
+#learn-symbol-container {
+  border-style: solid;
+  border-color: white;
+  color: white;
+  border-radius: 11px
+}
+
+#dream-index-container {
+  background: url(/media/dashboard-background.png);
+  background-size: auto; 
+  background-repeat: repeat-y;
 }
 
 .entry-card {
@@ -117,12 +306,18 @@
 
 .entry-card-divider {
   height: 2px;
-  background-color: #d3d3d3;
+  background-color: white
 }
 
 
+div#dream-entry-container {
+  min-height: 50vw;
+}
 
 
+#learn-dream-symbols-image {
+
+}
 
 
 

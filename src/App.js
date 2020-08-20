@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'semantic-ui-css/semantic.min.css'
 import './App.css';
 import { Route, Switch} from 'react-router-dom';
 import DashboardMainContainer from './pages/Dashboard/DashboardMainContainer'

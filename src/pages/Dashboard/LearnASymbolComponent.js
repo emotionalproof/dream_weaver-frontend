@@ -33,10 +33,19 @@ const LearnASymbolComponent = () => {
     // const counter = useSelector(state => state.counter)
     console.log(dreamSymbol)
     return (
+        <>
+        <div id="learn-dream-symbol-image-div">
+            <img src="/media/dashboard-learn-dream-symbols.png" alt="Learn Dream Symbols" id="learn-dream-symbols-image" />
+        </div>
         <Container id="learn-symbol-container">
-            <Row>
-                <Col>Learn a Dream Symbol</Col>
-            </Row>
+            {/* <Row>
+                <Col>
+                    <div>
+                        <img src="/media/dashboard-learn-dream-symbols.png" alt="Learn Dream Symbols" id="learn-dream-symbols-image" />
+                    </div>
+                </Col>
+                
+            </Row> */}
             <Row>
                 <Col>{dreamSymbol.name}</Col>
             </Row>
@@ -49,6 +58,7 @@ const LearnASymbolComponent = () => {
                 </Col>
             </Row>
         </Container>
+        </>
     )
 }
 

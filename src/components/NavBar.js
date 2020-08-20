@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 import { useHistory } from "react-router-dom"
 import { useDispatch, useSelector} from 'react-redux'
 import { logoutUser } from '../actions'
+import MyPlanet from './MyPlanet';
 
 const NavBar = () => {
     let history = useHistory()
@@ -28,25 +29,28 @@ const NavBar = () => {
     }
 
     return (
+        <><MyPlanet />
         <Navbar  variant="dark" className="custom-navbar">
             <Navbar.Brand >
-            <img
+            {/* <img
                 alt=""
                 src="/navbar_logo.png"
                 width="100"
                 height="100"
                 className="d-inline-block align-top"
                 onClick={goToHome}
-            />{' '}
+            />{' '} */}
             
             </Navbar.Brand>
-            <Nav>
+            {/* <Nav>
                 <Button variant="link" id="view-dream-index-button" onClick={goToDreamIndex}>View All Dreams</Button>
             </Nav>
             <Nav>
                 <Button variant="link" className="logout" onClick={handleLogout}>Logout</Button>
-            </Nav>
+            </Nav> */}
+            
         </Navbar>
+        </>
     )
 }
 
