@@ -56,8 +56,8 @@ export const DreamIndexMainContainer = () => {
                     
                 </Row>
                 <Row>
-                    <Col>
-                        <h1>Explore Your Dreams</h1>
+                    <Col id="index-title-column">
+                        <img src='media/dream-index-title.png' alt="Dream Jouranl" id="dream-index-title"/>
                     </Col>
                 </Row>
                 <Row>

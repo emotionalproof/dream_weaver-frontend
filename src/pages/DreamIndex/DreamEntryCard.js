@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import { Button, Divider, Transition} from 'semantic-ui-react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -38,7 +38,7 @@ const DreamEntryCard = props => {
     
 
     return (
-        <Card className="entry-card">
+        <Card bg={"dark"} text="white" className="entry-card">
             <Card.Header as="h2">{props.date}</Card.Header>
             <Card.Body>
                 <Container>
@@ -47,7 +47,7 @@ const DreamEntryCard = props => {
                             {!editToggle ? <Card.Title className="entry-card-title" as="h3">{props.title}</Card.Title> : <Form.Control type="text" name="title" onChange={e => setTitle(e.target.value)} value={title}/>}
                         </Col>
                     </Row>
-                    <Row className="entry-card-divider"></Row>
+                    {/* <Row className="entry-card-divider"></Row> */}
                     <Row><Col className="entry-card-subheading"><h4>Description</h4></Col></Row>
                     <Row>
                         <Col className="entry-card-content">
@@ -56,16 +56,16 @@ const DreamEntryCard = props => {
                             <Form.Control as="textarea" type="textarea" name="description" id="dream-description-form" onChange={e => setDescription(e.target.value)} value={description}/>}
                         </Col>
                     </Row>
-                    <Row className="entry-card-divider"></Row>
+                    {/* <Row className="entry-card-divider"></Row> */}
                     {/* <Row><Col className="entry-card-subheading"><h4>interpretation</h4></Col></Row> */}
                     <Row>
                         <Col className="entry-card-content">
                             
                         </Col>
                     </Row>
-                    <Row>
+                    <Row id="entry-card-button-row">
                         <Col>
-                            {!editToggle ? <Button onClick={() => setEditToggle(!editToggle)} variant="primary">Edit</Button> : <Button variant="primary"onClick={handleSubmit}>Save Changes</Button>}
+                            {!editToggle ? <Button inverted onClick={() => setEditToggle(!editToggle)} >Edit</Button> : <Button inverted onClick={handleSubmit}>Save Changes</Button>}
                         </Col>
                         <Col>
                             <SpeechKit id={props.id} text={`${props.title}. Dreamt on ${props.date}. ${props.description}`}/>

@@ -13,7 +13,7 @@ const DreamIndexFilterForm = props => {
                 <Col md={3}></Col>
                 <Col md={9}>
                     <Form.Group controlId="searchInput">
-                    <Form.Label>Search your Dreams by entering symbols from your dream below...</Form.Label>
+                    <Form.Label id="dream-filter-instructions">Search your Dreams by entering symbols from your dream below...</Form.Label>
                     <Form.Control value={props.searchText} onChange={(e) => props.handleSearch(e.target.value)} type="text" placeholder="No need to press to press a search button, just start typing." />
                     </Form.Group>
                 </Col>

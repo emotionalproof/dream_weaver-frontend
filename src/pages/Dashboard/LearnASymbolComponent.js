@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import { Button, Divider, Transition} from 'semantic-ui-react'
 import { getRandomSymbol } from '../../helpers/requests';
 import {useDispatch, useSelector} from 'react-redux'
 import { newSymbol } from '../../actions'
@@ -47,14 +48,14 @@ const LearnASymbolComponent = () => {
                 
             </Row> */}
             <Row>
-                <Col>{dreamSymbol.name}</Col>
+                <Col id="learn-name">{dreamSymbol.name}</Col>
             </Row>
             <Row>
-                <Col>{dreamSymbol.meaning}</Col>
+                <Col id="learn-meaning">{dreamSymbol.meaning}</Col>
             </Row>
             <Row>
                 <Col>
-                    <button onClick={() => nextSymbol()}>Next Symbol</button>
+                    <Button id="learn-button" inverted onClick={() => nextSymbol()}>Next Symbol</Button>
                 </Col>
             </Row>
         </Container>

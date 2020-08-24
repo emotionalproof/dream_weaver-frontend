@@ -208,8 +208,9 @@ img.orbit {
 
 #dashboard-main-container {
   background: url(/media/dashboard-background.png);
-  background-size: auto; 
-  background-repeat: repeat-y
+  background-size: cover;
+  background-repeat: repeat-y;
+  min-height: 96vw;
 }
 
 #dashboard-title {
@@ -230,11 +231,15 @@ img.orbit {
   min-height: 12vw;
 }
 
+#dashboard-left-container {
+
+}
+
 #new-dream-form {
   border-style: solid;
   border-color: white;
   color: white;
-  border-radius: 5%;
+  border-radius: 18px;
   margin-top: 5%
 }
 
@@ -242,10 +247,21 @@ img.orbit {
   margin-top: 4%
 }
 
-#microphone-icon {
-  height: 3vw;
+#recording-icon-row {
+
 }
 
+#microphone-icon {
+  height: 70px;
+}
+
+#pause-icon {
+  height: 70px
+}
+
+#reset-icon {
+  height: 70px
+}
 #recent-dreams-heading {
   position: relative;
   right: 57px;
@@ -258,7 +274,7 @@ img.orbit {
   border-style: solid;
   color: white;
   border-color: white;
-  border-radius: 11px;
+  border-radius: 18px;
   min-height: 4vw;
 }
 
@@ -285,7 +301,11 @@ img.orbit {
   border-style: solid;
   border-color: white;
   color: white;
-  border-radius: 11px
+  border-radius: 18px
+}
+
+div#index-title-column {
+  text-align: center;
 }
 
 #dream-index-container {
@@ -294,9 +314,15 @@ img.orbit {
   background-repeat: repeat-y;
 }
 
+#dream-filter-instructions {
+ color: white;
+ font-size: large;
+}
+
 .entry-card {
   width: auto;
   margin-bottom: 2vw;
+  border-radius: 18px;
 }
 
 .entry-card-title {
@@ -316,28 +342,59 @@ div#dream-entry-container {
 
 
 #learn-dream-symbols-image {
-
+  position: relative;
+  top: 106px;
 }
 
 #learn-dream-symbol-image-div {
   
 }
 
+#learn-name {
+  text-transform: capitalize;
+  font-size: xxx-large;
+  font-weight: bold;
+}
+
+#learn-meaning {
+  font-size: large;
+  margin-bottom: 33px;
+}
+
+#learn-button {
+
+}
+
+#calendar-button-div {
+  text-align: center;
+  margin: 20px;
+  background-color:rgb(59, 59, 59)
+}
+
+div#entry-card-button-row {
+  margin-top: 20px;
+}
+
+/* rgb(59, 59, 59) */
+
+div#mom-planet-column {
+  position: relative; 
+  right: -91vw; 
+}
 
 
+#mom-bday {
+  height: 24vw;
+}
 
 
+div#mon-planet-row {
+  /* margin-top: 111px; */
+}
 
-
-
-
-
-
-
-
-
-
-
+.divider-row {
+  height: 8vw
+}
 
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);

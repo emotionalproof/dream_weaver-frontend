@@ -9,11 +9,11 @@
     position: absolute;
     border-collapse: separate;
     font-family: "Open Sans", Calibri, Arial, sans-serif;
-    background-color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3125);
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3125);
+    background-color: rgb(59, 59, 59);
+    /* box-shadow: 0 1px 3px white;
+    -webkit-box-shadow: 0 1px 3px white; */
     border-radius: 3px;
-    -webkit-border-radius: 3px;
+    -webkit-border-radius: 18px;
 }
 .tail-datetime-calendar:after {
     clear: both;
@@ -33,21 +33,24 @@
     display: table;
     border-spacing: 0;
     border-collapse: separate;
-    /* background-color: #cd283c; */
+    background-color: white;
     border-radius: 3px 3px 0 0;
     -webkit-border-radius: 3px 3px 0 0;
     border-style: solid;
+    border-color: white;
 }
 .tail-datetime-calendar .calendar-navi span {
     cursor: pointer;
-    /* color: #fff; */
+    color: #fff;
+    background-color: rgb(59, 59, 59);
+    border-color: white;
     margin: 0;
     padding: 0;
     display: table-cell;
     font-size: 14px;
     text-align: center;
     line-height: 30px;
-    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15);
+    text-shadow: -1px -1px 0 white;
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -56,9 +59,11 @@
     width: 35px;
     padding: 0 0 5px 0;
     font-size: 22px;
+    border-color: white;
 }
 .tail-datetime-calendar .calendar-navi span:hover {
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgb(59, 59, 59);
+    border-color: white;
 }
 /* .tail-datetime-calendar.calendar-navi span.button-prev {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC\
@@ -104,14 +109,14 @@
     font-weight: normal;
     line-height: 35px;
     border: 0;
-    background-color: #223344;
+    background-color: rgb(59, 59, 59);
 }
 .tail-datetime-calendar .calendar-date table tbody tr > * {
-    color: #334455;
+    color: white;
     cursor: pointer;
     position: relative;
     font-size: 14px;
-    background-color: #ffffff;
+    background-color: rgb(59, 59, 59);
 }
 .tail-datetime-calendar .calendar-date table tbody tr > * > span {
     color: inherit;
@@ -128,29 +133,29 @@
     content: "";
     display: block;
     position: absolute;
-    border-width: 1px;
+    /* border-width: 1px; */
     border-style: solid;
     border-color: transparent;
     border-radius: 50%;
     -webkit-border-radius: 50%;
 }
 .tail-datetime-calendar .calendar-date table tbody tr > *.today {
-    color: #3296c8;
+    color: white;
 }
 .tail-datetime-calendar .calendar-date table tbody tr > *.today:after {
-    border-color: #3296c8;
+    border-color: white;
 }
 .tail-datetime-calendar .calendar-date table tbody tr > *:hover {
-    color: #cd283c;
+    color: white;
 }
 .tail-datetime-calendar .calendar-date table tbody tr > *:hover:after {
-    border-color: #cd283c;
+    border-color: white;
 }
 .tail-datetime-calendar .calendar-date table tbody tr > *.empty,
 .tail-datetime-calendar .calendar-date table tbody tr > *.disable {
-    color: #8899aa;
+    color: white;
     cursor: not-allowed;
-    background-color: #efefef;
+    background-color: rgb(59, 59, 59);
 }
 .tail-datetime-calendar .calendar-date table tbody tr > *.empty:hover:after,
 .tail-datetime-calendar .calendar-date table tbody tr > *.disable:hover:after {
@@ -158,11 +163,11 @@
     display: none;
 }
 .tail-datetime-calendar .calendar-date table tbody tr > *.current span {
-    color: #fff;
+    color: white;
 }
 .tail-datetime-calendar .calendar-date table tbody tr > *.current:after {
     border-color: #3296c8;
-    background-color: #3296c8;
+    background-color: rgb(59, 59, 59);
 }
 /* Select A Month */
 .tail-datetime-calendar .calendar-date table.calendar-month tbody tr > * {
@@ -172,9 +177,9 @@
 }
 .tail-datetime-calendar .calendar-date table.calendar-month tbody tr > * span {
     display: block;
-    border-width: 1px;
+    /* border-width: 1px; */
     border-style: solid;
-    border-color: transparent;
+    border-color: white;
     border-radius: 3px;
     -webkit-border-radius: 3px;
 }
@@ -185,9 +190,9 @@
     tr
     > *:hover
     span {
-    border-color: #d0d0d0;
-    box-shadow: 0 1px 0 0 #efefef;
-    -webkit-box-shadow: 0 1px 0 0 #efefef;
+    border-color: white;
+    /* box-shadow: 0 1px 0 0 #efefef;
+    -webkit-box-shadow: 0 1px 0 0 #efefef; */
 }
 /* Select a Time */
 .tail-datetime-calendar .calendar-time {
@@ -196,13 +201,13 @@
     padding: 0;
     display: table;
     text-align: center;
-    background-color: #ffffff;
+    background-color: rgb(59, 59, 59);
     border-radius: 0 0 3px 3px;
     -webkit-border-radius: 0 0 3px 3px;
 }
 .tail-datetime-calendar .calendar-date + .calendar-time {
-    border-top: 1px solid #d0d0d0;
-    background-color: #f8f8f8;
+    border-top: 1px solid white;
+    background-color: rgb(59, 59, 59);
 }
 .tail-datetime-calendar .calendar-time .calendar-field {
     width: 33.3333333333%;
@@ -238,10 +243,10 @@
     font-size: 12px;
     line-height: 16px;
     text-align: center;
-    border-width: 1px;
+    /* border-width: 1px; */
     border-style: solid;
-    border-color: #d0d0d0;
-    background-color: #ffffff;
+    border-color: white;
+    background-color: rgb(59, 59, 59);
     border-radius: 3px;
     -webkit-border-radius: 3px;
 }
@@ -249,16 +254,16 @@
     .calendar-time
     .calendar-field
     input[type="number"]:hover {
-    border-color: #a0a0a0;
+    border-color: white;
 }
 .tail-datetime-calendar
     .calendar-time
     .calendar-field
     input[type="number"]:focus {
-    border-color: #3296c8;
+    border-color: white;
 }
 .tail-datetime-calendar .calendar-time .calendar-field label {
-    color: #778899;
+    color: white;
     margin: 5px 0 0 0;
     padding: 0;
     display: block;
@@ -275,4 +280,15 @@ h5#reset-date-button {
 h4#calendar-instructions {
     font-size: large;
     text-align-last: center;
+    color: white
+}
+
+#calendar-selected-day-div {
+    text-align: center;
+    color: white
+}
+
+#calendar-selected-day {
+    font-size: x-large;
+    color: white
 }

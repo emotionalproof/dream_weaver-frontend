@@ -6,7 +6,7 @@ import LearnASymbolComponent from './LearnASymbolComponent'
 
 const DashboardLeftContainer = () => {
     return (
-        <Container>
+        <Container id="dashboard-left-container">
             <Row>
                 <Col>
                     <LearnASymbolComponent />

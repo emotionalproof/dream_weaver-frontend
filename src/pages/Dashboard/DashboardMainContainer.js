@@ -7,6 +7,7 @@ import DashboardLeftContainer from './DashboardLeftContainer';
 import DashboardRightContainer from './DashboardRightContainer';
 import moment from 'moment'
 import MyPlanet from '../../components/MyPlanet';
+import MomPlanet from '../../components/MomPlanet';
 
 
 // to save user_id through a refresh
@@ -45,6 +46,13 @@ const DashboardMainContainer = () => {
                     <Col md={4}><DashboardLeftContainer /></Col>
                     <Col md={1}></Col>
                     <Col md={7}><DashboardRightContainer /></Col>
+                </Row>
+                <Row className="divider-row">
+                </Row>
+                <Row id="mon-planet-row">
+                    <Col id="mom-planet-column">
+                        <MomPlanet />
+                    </Col>
                 </Row>
                 
             </Container>

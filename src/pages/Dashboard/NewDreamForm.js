@@ -99,13 +99,13 @@ const NewDreamForm = () => {
                     <Form.Control type="date" name="date" onChange={e => setDate(e.target.value)} value={date}/>
                 </Col>
             </Row>
-            <Row>
+            <Row id="recording-icon-row">
                 <Col>
                     <Form.Label className="new-entry-label">Description</Form.Label><br/>
-                    {!recording? <img onClick={handleRecording} id="microphone-icon" src='/media/mic-circle-sharp.svg' alt="record"/> : 
+                    {!recording? <img onClick={handleRecording} id="microphone-icon" src='/media/new-dream-form-record.png' alt="record"/> : 
                         <> 
-                        <button onClick={handleRecording}>Stop</button>
-                        <button onClick={handleReset}>Reset</button>
+                        <img id="pause-icon" onClick={handleRecording} src="/media/new-dream-form-pause.png" alt="Pause"/>
+                        <img id="reset-icon" onClick={handleReset} src="/media/new-dream-form-reset.png" alt="Reset" />
                         </>    
                     }
                     <Form.Control as="textarea" type="textarea" name="description" id="dream-description-form" placeholder="Describe your dream with as much detail as possible" onChange={e => setDescription(e.target.value)} value={description}/>

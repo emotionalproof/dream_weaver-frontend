@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSpeechSynthesis } from 'react-speech-kit';
+import { Button, Divider, Transition} from 'semantic-ui-react'
 
 
 const SpeechKit = props => {
@@ -32,16 +33,17 @@ const SpeechKit = props => {
     return (
         <>
             {speaking ? (
-              <button type="button" onClick={cancel}>
+              <Button type="button" onClick={cancel}>
                 Stop Listening
-              </button>
+              </Button>
             ) : (
-              <button
+              <Button
+                inverted
                 type="button"
                 onClick={() => speak({ text, voice, rate, pitch })}
               >
                 Listen to your Dream...
-              </button>
+              </Button>
             )}
         </>
     );

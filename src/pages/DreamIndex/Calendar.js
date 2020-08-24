@@ -4,6 +4,7 @@ import { range } from "moment-range";
 import "./calendar.css";
 import MonthList from './MonthList';
 import YearTable from './YearTable';
+import { Button, Divider, Transition} from 'semantic-ui-react'
 
 
 const Calendar = props => {
@@ -123,7 +124,7 @@ const Calendar = props => {
     return (
         <div className="tail-datetime-calendar">
             <div><h4 id="calendar-instructions">See what dreams you had on a particular day.</h4></div>
-            <div><h5>{selectedDay}</h5></div>
+            <div id="calendar-selected-day-div"><h5 id="calendar-selected-day">{selectedDay}</h5></div>
             <div className="calendar-navi">
                 <span onClick={onPrev} className="calendar-button button-prev"/>
                     {(!showMonthTable && !showYearNav) && (
@@ -146,7 +147,10 @@ const Calendar = props => {
                 </table>
             </div>
             )}
-            <h5 id="reset-date-button" onClick={resetDate}>All Dates</h5>
+            <div id="calendar-button-div">
+                <Button inverted id="reset-date-button" onClick={resetDate}>All Dates</Button>
+            </div>
+            
         </div>
     );
 }
