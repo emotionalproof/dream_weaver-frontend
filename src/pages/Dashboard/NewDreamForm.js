@@ -10,11 +10,8 @@ import { newEntry } from '../../actions/index';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 const NewDreamForm = () => {
-    // let todayDate = parseInt(moment().date())
-    // let todayMonth = parseInt(moment().month()) 
-    // let todayYear = parseInt(moment().year())
+
     let todayString = moment().format("YYYY-MM-DD")
-    // let todayString = moment([todayYear, todayMonth, todayDate]).format("dddd, MMMM Do YYYY")
     
     let dispatch = useDispatch()
     const { transcript, resetTranscript } = useSpeechRecognition()
@@ -25,7 +22,6 @@ const NewDreamForm = () => {
     let [recording, setRecording] = useState(false)
     let [visible, setVisible] = useState(false)
 
-    // let user = useSelector(state => state.updateUser.user)
     const toggleForm = () => {
         setVisible(!visible)
     }
@@ -33,9 +29,8 @@ const NewDreamForm = () => {
     useEffect(() => {
         setDescription(transcript)
     },[transcript])
-    // Speech to text
+
    
-    
     if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
         return null
     }
